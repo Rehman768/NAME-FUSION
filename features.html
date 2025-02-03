@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Name Fusion App</title>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="NF_logo.png" alt="Logo">
+            <h1 class="animated-title">NAME FUSION</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+    <div class="back-arrow" onclick="goBack()">&#8592; Back</div>
+    <div class="container">
+        <div class="main-content">
+            <div class="section">
+                <h2>Tradi to Modern</h2>
+                <p>Convert traditional names to modern equivalents.</p>
+                <button class="animated-button" onclick="navigateTo('traditional-to-modern.html')">Go</button>
+            </div>
+            <div class="section">
+                <h2>Nickname Finder</h2>
+                <p>Find the perfect nickname for any name.</p>
+                <button class="animated-button" onclick="navigateTo('nickname-finder.html')">Go</button>
+            </div>
+            <div class="section">
+                <h2>Flames</h2>
+                <p>Discover the relationship compatibility using FLAMES.</p>
+                <button class="animated-button" onclick="navigateTo('flames.html')">Go</button>
+            </div>
+            <div class="section">
+                <h2>Name Finder</h2>
+                <p>Generate a name based on your preferences.</p>
+                <button class="animated-button" onclick="navigateTo('name-finder.html')">Go</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 Name Fusion App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

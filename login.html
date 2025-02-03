@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Name Fusion</title>
+    <link rel="stylesheet" href="css/global.css">
+    <style>
+        .password-container {
+            position: relative;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-page" id="loginPage">
+            <div class="login-form">
+                <h2>Login</h2>
+                <input type="text" id="emailOrPhone" placeholder="Email or Phone Number">
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Password">
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+                <button onclick="login()">Login</button>
+                <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var emailOrPhone = document.getElementById('emailOrPhone').value;
+            var password = document.getElementById('password').value;
+
+            var storedEmailOrPhone = localStorage.getItem('emailOrPhone');
+            var storedPassword = localStorage.getItem('password');
+
+            if (emailOrPhone === storedEmailOrPhone && password === storedPassword) {
+                // Redirect to index page
+                window.location.href = 'index.html';
+            } else {
+                alert('Incorrect email or phone number, or password.');
+            }
+        }
+
+        function togglePassword() {
+            var passwordField = document.getElementById('password');
+            var passwordFieldType = passwordField.getAttribute('type');
+            if (passwordFieldType === 'password') {
+                passwordField.setAttribute('type', 'text');
+            } else {
+                passwordField.setAttribute('type', 'password');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Finder - NAME FUSION</title>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="NF_logo.png" alt="Logo">
+            <h1 class="animated-title">NAME FUSION</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+    <div class="back-arrow" onclick="goBack()">&#8592; Back</div>
+    <div class="container">
+        <h1>Name Finder</h1>
+        <div class="input-section">
+            <div class="gender-selection">
+                <label><input type="radio" name="gender" value="boy"> Boy</label>
+                <label><input type="radio" name="gender" value="girl"> Girl</label>
+            </div>
+            <input type="text" id="startingLetter" placeholder="Enter Starting Letter">
+            <div class="religion-selection">
+                <label><input type="radio" name="religion" value="hindu"> Hindu</label>
+                <label><input type="radio" name="religion" value="muslim"> Muslim</label>
+                <label><input type="radio" name="religion" value="christian"> Christian</label>
+            </div>
+            <button onclick="generateName()">Generate</button>
+        </div>
+        <div class="result-section">
+            <h2>Result</h2>
+            <div id="resultBox" class="result-box"></div>
+            <button onclick="refreshName()">Refresh</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 NAME FUSION. All rights reserved.</p>
+    </footer>
+
+    <script src="js/name-finder.js"></script>
+    <script>
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

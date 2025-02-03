@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Name Fusion</title>
+    <link rel="stylesheet" href="css/global.css">
+    <style>
+        .password-container {
+            position: relative;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .social-login {
+            background: #4285F4; /* Google color */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            transition: background 0.3s;
+        }
+        .social-login.facebook {
+            background: #3b5998; /* Facebook color */
+        }
+        .social-login:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="signup-page" id="signupPage">
+            <div class="signup-form">
+                <h2>Sign Up</h2>
+                <button class="social-login" onclick="signupWithGoogle()">Sign Up with Google</button>
+                <button class="social-login facebook" onclick="signupWithFacebook()">Sign Up with Facebook</button>
+                <input type="text" id="fullName" placeholder="Full Name">
+                <input type="text" id="emailOrPhone" placeholder="Email or Phone Number">
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Password">
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+                <button onclick="signup()">Sign Up</button>
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function signup() {
+            var fullName = document.getElementById('fullName').value;
+            var emailOrPhone = document.getElementById('emailOrPhone').value;
+            var password = document.getElementById('password').value;
+            var passwordCriteria = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (!passwordCriteria.test(password)) {
+                alert('Password must be at least 8 characters long and include uppercase letters, lowercase letters, numbers, and special characters.');
+                return;
+            }
+
+            // Save user details to localStorage
+            localStorage.setItem('fullName', fullName);
+            localStorage.setItem('emailOrPhone', emailOrPhone);
+            localStorage.setItem('password', password);
+
+            // Redirect to login page
+            window.location.href = 'login.html';
+        }
+
+        function togglePassword() {
+            var passwordField = document.getElementById('password');
+            var passwordFieldType = passwordField.getAttribute('type');
+            if (passwordFieldType === 'password') {
+                passwordField.setAttribute('type', 'text');
+            } else {
+                passwordField.setAttribute('type', 'password');
+            }
+        }
+
+        function signupWithGoogle() {
+            alert('Google signup is not implemented yet.');
+        }
+
+        function signupWithFacebook() {
+            alert('Facebook signup is not implemented yet.');
+        }
+    </script>
+</body>
+</html>
